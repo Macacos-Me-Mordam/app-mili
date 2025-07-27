@@ -130,6 +130,12 @@ class _HomePageState extends State<HomePage> {
               textAlign: TextAlign.justify,
             ),
             const SizedBox(height: 24),
+                        ImageSubmissionCard(
+              selectedImage: _selectedImage,
+              onPickImage: _pickImage,
+              onSubmitImage: _submitImage,
+            ),
+            const SizedBox(height: 12),
             InfoCard(
               icon: Icons.warning_amber_rounded,
               iconColor: Colors.red.shade400,
@@ -145,13 +151,6 @@ class _HomePageState extends State<HomePage> {
               subtitle:
                   "Descarte seus resíduos de forma responsável, utilizando os pontos de coleta apropriados ou serviços públicos de recolhimento.",
             ),
-            const SizedBox(height: 24),
-            ImageSubmissionCard(
-              selectedImage: _selectedImage,
-              onPickImage: _pickImage,
-              onSubmitImage: _submitImage,
-            ),
-            const SizedBox(height: 80),
           ],
         ),
       ),

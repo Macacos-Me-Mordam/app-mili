@@ -28,14 +28,14 @@ class ImageSubmissionCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "1. Envie uma foto de descarte irregular",
+              "Envie uma foto de descarte irregular",
               style: AppTextStyles.subtitle.copyWith(
                 color: theme.textTheme.titleMedium?.color,
               ),
             ),
             const SizedBox(height: 12),
             Text(
-              "Você encontrou um sofá, entulho ou lixo jogado em local inadequado? Tire uma foto e envie para ajudar a manter a cidade limpa.",
+              "Encontrou resíduos descartados de forma irregular? Tire uma foto e contribua para uma cidade mais limpa.",
               style: AppTextStyles.body.copyWith(
                 color: theme.textTheme.bodyMedium?.color,
               ),
