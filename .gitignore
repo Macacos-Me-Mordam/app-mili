@@ -1,0 +1,66 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+.melos/
+.pub-cache/
+build/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Android
+android/.gradle/
+android/.idea/
+android/local.properties
+android/app/*.keystore
+
+# iOS
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/ephemeral/
+ios/.symlinks/
+ios/Pods/
+ios/Runner.xcworkspace/
+ios/Runner.xcodeproj/project.xcworkspace/
+ios/build/
+
+# Web
+web/.dart_tool/
+web/build/
+
+# Linux
+linux/flutter/
+linux/CMakeFiles/
+linux/cmake-build-*/
+
+# macOS
+macos/Flutter/
+macos/build/
+macos/Pods/
+
+# Windows
+windows/flutter/
+windows/CMakeFiles/
+windows/cmake-build-*/
+
+# Test output
+coverage/
+
+# Pub
+pubspec.lock
+*.log
+
+# VS Code
+.vscode/
+
+# Outros
+*.lock
+*.tmp
+*.swp
+*.swo
