@@ -15,7 +15,6 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.appfetin.ui.theme.*
 
 @Composable
 fun CustomButton(
@@ -26,12 +25,12 @@ fun CustomButton(
     variant: ButtonVariant = ButtonVariant.Primary
 ) {
     val shape = RoundedCornerShape(16.dp)
-    
+
     val backgroundBrush = when (variant) {
         ButtonVariant.Primary -> Brush.horizontalGradient(
             colors = listOf(
                 if (enabled) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline,
-                if (enabled) PrimaryBrownLight else MaterialTheme.colorScheme.outline
+                if (enabled) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline
             )
         )
         ButtonVariant.Secondary -> Brush.horizontalGradient(
@@ -47,13 +46,13 @@ fun CustomButton(
             )
         )
     }
-    
+
     val contentColor = when (variant) {
         ButtonVariant.Primary -> MaterialTheme.colorScheme.onPrimary
         ButtonVariant.Secondary -> MaterialTheme.colorScheme.onSecondaryContainer
         ButtonVariant.Outline -> MaterialTheme.colorScheme.primary
     }
-    
+
     Box(
         modifier = modifier
             .fillMaxWidth()

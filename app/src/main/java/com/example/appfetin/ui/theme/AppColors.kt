@@ -2,52 +2,40 @@ package com.example.appfetin.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Paleta moderna e elegante - Tons de marrom e off-white
-// Cores primárias - Tons de marrom sofisticados
-val PrimaryBrown = Color(0xFF5D4037)        // Marrom profundo e elegante
-val PrimaryBrownLight = Color(0xFF8D6E63)   // Marrom médio
-val PrimaryBrownSoft = Color(0xFFA1887F)    // Marrom suave para acentos
+val LightBackground = Color(0xFFFFFFFF)
+val LightForeground = Color(0xFF09090B)
+val LightCard = Color(0xFFFFFFFF)
+val LightCardForeground = Color(0xFF09090B)
+val LightPopover = Color(0xFFFFFFFF)
+val LightPopoverForeground = Color(0xFF09090B)
+val LightPrimary = Color(0xFF2F30A4)
+val LightPrimaryForeground = Color(0xFFFAFAFA)
+val LightSecondary = Color(0xFFF4F4F5)
+val LightSecondaryForeground = Color(0xFF27272A)
+val LightMuted = Color(0xFFF4F4F5)
+val LightMutedForeground = Color(0xFF6F6F7B)
+val LightAccent = Color(0xFFF4F4F5)
+val LightAccentForeground = Color(0xFF27272A)
+val LightDestructive = Color(0xFFEF4444)
+val LightBorder = Color(0xFFE4E4E7)
+val LightInput = Color(0xFFE4E4E7)
+val LightRing = Color(0xFFA1A1AA)
 
-// Cores secundárias - Tons neutros aquecidos e off-white
-val OffWhite = Color(0xFFFFFEFC)            // Off-white principal
-val WarmGray50 = Color(0xFFFAF9F7)          // Off-white com toque de cinza
-val WarmGray100 = Color(0xFFF5F4F1)         // Cinza muito claro aquecido
-val WarmGray200 = Color(0xFFE8E6E1)         // Cinza claro aquecido
-val WarmGray300 = Color(0xFFD7D3CE)         // Cinza médio claro
-val WarmGray400 = Color(0xFFA69B94)         // Cinza médio aquecido
-val WarmGray500 = Color(0xFF8D7B73)         // Cinza escuro aquecido
-val WarmGray600 = Color(0xFF6D5D56)         // Cinza muito escuro
-val WarmGray700 = Color(0xFF4A3C37)         // Marrom acinzentado escuro
-val WarmGray800 = Color(0xFF3E2723)         // Marrom escuro
-val WarmGray900 = Color(0xFF2E1A16)         // Marrom profundo
-
-// Cores de destaque - Adaptadas para harmonizar com marrom
-val AccentBlue = Color(0xFF5C7CFA)          // Azul suave
-val AccentOrange = Color(0xFFF57C00)        // Laranja terroso
-val AccentAmber = Color(0xFFFFB300)         // Âmbar dourado
-
-// Estados e feedbacks - Tons terrosos
-val SuccessGreen = Color(0xFF689F38)        // Verde terroso
-val WarningAmber = Color(0xFFFFB300)        // Âmbar aviso
-val ErrorRed = Color(0xFFD32F2F)           // Vermelho terroso
-val InfoBlue = Color(0xFF5C7CFA)           // Azul informativo
-
-// Esquema claro moderno - Off-white e marrom
-val LightBackground = WarmGray50
-val LightSurface = OffWhite
-val LightSurfaceVariant = WarmGray100
-val LightOnBackground = WarmGray800
-val LightOnSurface = WarmGray700
-val LightOnSurfaceVariant = WarmGray500
-val LightOutline = WarmGray300
-val LightOutlineVariant = WarmGray200
-
-// Esquema escuro moderno - Tons de marrom
-val DarkBackground = WarmGray900
-val DarkSurface = WarmGray800
-val DarkSurfaceVariant = WarmGray700
-val DarkOnBackground = WarmGray100
-val DarkOnSurface = WarmGray200
-val DarkOnSurfaceVariant = WarmGray400
-val DarkOutline = WarmGray600
-val DarkOutlineVariant = WarmGray700
+val DarkBackground = Color(0xFF09090B)
+val DarkForeground = Color(0xFFFAFAFA)
+val DarkCard = Color(0xFF27272A)
+val DarkCardForeground = Color(0xFFFAFAFA)
+val DarkPopover = Color(0xFF27272A)
+val DarkPopoverForeground = Color(0xFFFAFAFA)
+val DarkPrimary = Color(0xFFE4E4E7)
+val DarkPrimaryForeground = Color(0xFF27272A)
+val DarkSecondary = Color(0xFF3F3F46)
+val DarkSecondaryForeground = Color(0xFFFAFAFA)
+val DarkMuted = Color(0xFF3F3F46)
+val DarkMutedForeground = Color(0xFFA1A1AA)
+val DarkAccent = Color(0xFF3F3F46)
+val DarkAccentForeground = Color(0xFFFAFAFA)
+val DarkDestructive = Color(0xFFB91C1C)
+val DarkBorder = Color(0xFF3F3F46)
+val DarkInput = Color(0xFF3F3F46)
+val DarkRing = Color(0xFF82828D)

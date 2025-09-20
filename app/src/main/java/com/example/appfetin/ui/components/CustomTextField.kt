@@ -15,12 +15,13 @@ fun CustomTextField(
     label: String,
     modifier: Modifier = Modifier,
     maxLines: Int = 1,
-    isError: Boolean = false
+    isError: Boolean = false,
+    enabled: Boolean = true // Parâmetro 'enabled' adicionado aqui
 ) {
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
-        label = { 
+        label = {
             Text(
                 text = label,
                 style = MaterialTheme.typography.bodyMedium
@@ -38,6 +39,7 @@ fun CustomTextField(
             errorBorderColor = MaterialTheme.colorScheme.error,
             errorLabelColor = MaterialTheme.colorScheme.error
         ),
-        isError = isError
+        isError = isError,
+        enabled = enabled // Parâmetro 'enabled' passado para o OutlinedTextField
     )
 }

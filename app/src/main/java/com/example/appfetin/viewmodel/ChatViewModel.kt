@@ -1,18 +1,21 @@
 package com.example.appfetin.viewmodel
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.appfetin.model.AIMessage
 import com.example.appfetin.model.ChatMessage
 import com.example.appfetin.repository.AIRepository
+import com.example.appfetin.util.RateLimiter
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class ChatViewModel : ViewModel() {
+class ChatViewModel(application: Application) : AndroidViewModel(application) {
 
     private val aiRepository = AIRepository()
+    private val rateLimiter = RateLimiter(application.applicationContext)
 
     private val _messages = MutableStateFlow<List<ChatMessage>>(emptyList())
     val messages: StateFlow<List<ChatMessage>> = _messages.asStateFlow()
@@ -26,10 +29,16 @@ class ChatViewModel : ViewModel() {
     private val conversationHistory = mutableListOf<AIMessage>()
 
     init {
-        addBotMessage("Olá! Sou o MiliBot, seu assistente para questões ambientais. Como posso ajudar você hoje?")
+        addBotMessage("Olá! Sou o Mili AI, seu assistente para questões ambientais. Como posso ajudar você hoje?")
     }
 
     fun sendMessage(userMessageText: String) {
+        // 1. VERIFICA O LIMITE ANTES DE FAZER QUALQUER COISA
+        if (rateLimiter.isRateLimited()) {
+            _error.value = "Você atingiu o limite de 50 mensagens por hora. Tente novamente mais tarde."
+            return
+        }
+
         if (userMessageText.isBlank()) return
 
         addUserMessage(userMessageText)
@@ -44,9 +53,12 @@ class ChatViewModel : ViewModel() {
             _isLoading.value = true
             _error.value = null
 
+            // 2. REGISTRA A REQUISIÇÃO ANTES DE ENVIÁ-LA
+            rateLimiter.recordRequestTimestamp()
+
             val result = aiRepository.getAIResponse(
                 userMessage = conversationHistory.last().content,
-                conversationHistory = conversationHistory.dropLast(1) 
+                conversationHistory = conversationHistory.dropLast(1)
             )
 
             result.fold(
@@ -80,7 +92,7 @@ class ChatViewModel : ViewModel() {
     private fun addBotMessage(content: String) {
         val message = ChatMessage(
             id = System.currentTimeMillis().toString(),
-            senderName = "MiliBot",
+            senderName = "Galego",
             senderAvatar = "🤖",
             scope = "Meio ambiente",
             content = content,
@@ -92,18 +104,19 @@ class ChatViewModel : ViewModel() {
     fun clearError() {
         _error.value = null
     }
-    
+
     fun testConnection() {
         viewModelScope.launch {
             _isLoading.value = true
             _error.value = null
-            
+
             try {
                 val result = aiRepository.testConnection()
                 result.fold(
                     onSuccess = { response ->
                         _error.value = "✅ $response"
                     },
+
                     onFailure = { exception ->
                         _error.value = "❌ Erro na conexão: ${exception.message}"
                     }
@@ -115,5 +128,4 @@ class ChatViewModel : ViewModel() {
             }
         }
     }
-
 }

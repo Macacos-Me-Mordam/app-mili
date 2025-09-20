@@ -11,49 +11,31 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = PrimaryBrown,
-    onPrimary = WarmGray50,
-    primaryContainer = PrimaryBrownLight,
-    onPrimaryContainer = WarmGray50,
-    secondary = PrimaryBrownSoft,
-    onSecondary = WarmGray50,
-    secondaryContainer = WarmGray700,
-    onSecondaryContainer = WarmGray200,
-    tertiary = AccentBlue,
-    onTertiary = WarmGray50,
+    primary = DarkPrimary,
+    onPrimary = DarkPrimaryForeground,
+    secondary = DarkSecondary,
+    onSecondary = DarkSecondaryForeground,
     background = DarkBackground,
-    onBackground = DarkOnBackground,
-    surface = DarkSurface,
-    onSurface = DarkOnSurface,
-    surfaceVariant = DarkSurfaceVariant,
-    onSurfaceVariant = DarkOnSurfaceVariant,
-    outline = DarkOutline,
-    outlineVariant = DarkOutlineVariant,
-    error = ErrorRed,
-    onError = WarmGray50
+    onBackground = DarkForeground,
+    surface = DarkCard,
+    onSurface = DarkCardForeground,
+    error = DarkDestructive,
+    onError = DarkPrimaryForeground,
+    outline = DarkBorder
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = PrimaryBrown,
-    onPrimary = WarmGray50,
-    primaryContainer = PrimaryBrownSoft,
-    onPrimaryContainer = WarmGray900,
-    secondary = PrimaryBrownLight,
-    onSecondary = WarmGray50,
-    secondaryContainer = WarmGray100,
-    onSecondaryContainer = WarmGray800,
-    tertiary = AccentBlue,
-    onTertiary = WarmGray50,
+    primary = LightPrimary,
+    onPrimary = LightPrimaryForeground,
+    secondary = LightSecondary,
+    onSecondary = LightSecondaryForeground,
     background = LightBackground,
-    onBackground = LightOnBackground,
-    surface = LightSurface,
-    onSurface = LightOnSurface,
-    surfaceVariant = LightSurfaceVariant,
-    onSurfaceVariant = LightOnSurfaceVariant,
-    outline = LightOutline,
-    outlineVariant = LightOutlineVariant,
-    error = ErrorRed,
-    onError = WarmGray50
+    onBackground = LightForeground,
+    surface = LightCard,
+    onSurface = LightCardForeground,
+    error = LightDestructive,
+    onError = LightPrimaryForeground,
+    outline = LightBorder
 )
 
 @Composable
@@ -68,7 +50,6 @@ fun AppFetinTheme(
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }

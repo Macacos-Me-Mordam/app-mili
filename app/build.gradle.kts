@@ -63,4 +63,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation("io.coil-kt:coil-compose:2.6.0")
+    implementation("io.coil-kt:coil-compose:2.6.0")
+    implementation("com.amazonaws:aws-android-sdk-s3:2.77.0")
+    implementation("com.github.franmontiel:PersistentCookieJar:v1.0.1")
+
 }

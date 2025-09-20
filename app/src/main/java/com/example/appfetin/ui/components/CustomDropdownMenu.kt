@@ -17,18 +17,19 @@ fun CustomDropdownMenu(
     options: List<String>,
     expanded: Boolean,
     onExpandedChange: (Boolean) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true // Parâmetro 'enabled' adicionado aqui
 ) {
     ExposedDropdownMenuBox(
         expanded = expanded,
-        onExpandedChange = onExpandedChange,
+        onExpandedChange = { if (enabled) onExpandedChange(it) }, // Permite fechar o menu mesmo desabilitado
         modifier = modifier.fillMaxWidth()
     ) {
         OutlinedTextField(
             value = value,
             onValueChange = { },
             readOnly = true,
-            label = { 
+            label = {
                 Text(
                     text = label,
                     style = MaterialTheme.typography.bodyMedium
@@ -45,12 +46,13 @@ fun CustomDropdownMenu(
             ),
             shape = RoundedCornerShape(16.dp),
             modifier = Modifier
-                .menuAnchor(MenuAnchorType.PrimaryEditable, enabled = true)
-                .fillMaxWidth()
+                .menuAnchor(MenuAnchorType.PrimaryEditable) // removido 'enabled = true' daqui
+                .fillMaxWidth(),
+            enabled = enabled // Parâmetro 'enabled' passado aqui
         )
-        
+
         ExposedDropdownMenu(
-            expanded = expanded,
+            expanded = expanded && enabled, // O menu só expande se estiver habilitado
             onDismissRequest = { onExpandedChange(false) },
             modifier = Modifier.background(
                 MaterialTheme.colorScheme.surface,
@@ -59,7 +61,7 @@ fun CustomDropdownMenu(
         ) {
             options.forEach { option ->
                 DropdownMenuItem(
-                    text = { 
+                    text = {
                         Text(
                             text = option,
                             style = MaterialTheme.typography.bodyMedium
